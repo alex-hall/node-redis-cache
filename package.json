@@ -1,0 +1,25 @@
+{
+  "name": "node-redis-cache",
+  "version": "1.0.0",
+  "description": "A simple application cache backed by Redis!",
+  "main": "index.js",
+  "scripts": {
+    "test": "yarn test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alex-hall/node-redis-cache.git"
+  },
+  "keywords": [
+    "node",
+    "redis",
+    "cache",
+    "express"
+  ],
+  "author": "Alex Hall",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alex-hall/node-redis-cache/issues"
+  },
+  "homepage": "https://github.com/alex-hall/node-redis-cache#readme"
+}
