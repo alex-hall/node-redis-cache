@@ -24,6 +24,10 @@
   },
   "homepage": "https://github.com/alex-hall/node-redis-cache#readme",
   "devDependencies": {
+    "@types/jest": "^23.3.0",
     "jest": "^23.4.1"
+  },
+  "dependencies": {
+    "redis": "^2.8.0"
   }
 }
