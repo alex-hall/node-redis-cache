@@ -4,7 +4,7 @@
   "description": "A simple application cache backed by Redis!",
   "main": "index.js",
   "scripts": {
-    "test": "yarn test"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/alex-hall/node-redis-cache/issues"
   },
-  "homepage": "https://github.com/alex-hall/node-redis-cache#readme"
+  "homepage": "https://github.com/alex-hall/node-redis-cache#readme",
+  "devDependencies": {
+    "jest": "^23.4.1"
+  }
 }
