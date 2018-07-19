@@ -17,7 +17,7 @@
     "express"
   ],
   "author": "Alex Hall",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/alex-hall/node-redis-cache/issues"
   },
