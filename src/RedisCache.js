@@ -1,7 +1,7 @@
 const redis = require("redis")
 const {promisify} = require("util")
 
-module.exports = class NodeRedisCache {
+module.exports = class RedisCache {
 
     constructor(clientConfig) {
         this.client = new redis.createClient(clientConfig)
