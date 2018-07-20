@@ -3,18 +3,49 @@ const {promisify} = require("util")
 
 module.exports = class RedisCache {
 
-    constructor(clientConfig) {
-        this.client = new redis.createClient(clientConfig)
+    constructor({defaultExpiry = 1, redisConfig = {}} = {}) {
+        this.client = new redis.createClient(redisConfig)
 
-        this.defaultExpiry = clientConfig.defaultExpiry
+        if(defaultExpiry <= 0){
+            throw "Argument error. Default expiry should be greater than zero."
+        }
+        this.defaultExpiry = defaultExpiry
     }
 
-    set(key, value, expiry) {
-        const asyncSet = promisify(this.client.set).bind(this.client)
+    set(key, value, expiry = this.defaultExpiry) {
+        const asyncSet = this.promisifyMethod(this.client, "set")
 
-        return asyncSet(key, value, "EX", expiry)
+        return asyncSet(key, value, "EX", expiry).then(response => response === "OK");
+    }
+
+    exists(key) {
+        const asyncExists = this.promisifyMethod(this.client, "exists")
+
+        return asyncExists(key).then(response => response === 1)
+    }
+
+    get(key) {
+        const asyncGet = this.promisifyMethod(this.client, "get")
+
+        return asyncGet(key)
+    }
+
+    async fetch(key, saveMethod) {
+        const valueFound = await this.get(key)
+
+        if (valueFound) {
+            return valueFound
+        } else {
+            const valueToBeSaved = await saveMethod()
+
+            await this.set(key, valueToBeSaved, this.defaultExpiry)
+            return valueToBeSaved
+        }
     }
 
 
+    promisifyMethod(client, method) {
+        return promisify(client[method]).bind(client)
+    }
 }
 
