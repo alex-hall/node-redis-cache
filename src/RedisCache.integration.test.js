@@ -3,13 +3,14 @@ const RedisCache = require("./RedisCache")
 let redisCache
 
 describe('Integration', () => {
+    const desiredExpiryInSeconds = 1
+
     beforeEach(() => {
         redisCache = new RedisCache({defaultExpiry: 1})
     })
 
     describe('basic CRUD operation', () => {
         it('gets, sets, exists, and expires!', async () => {
-            const desiredExpiryInSeconds = 1
 
             const initialKey = await redisCache.get("SOME_KEY")
 
@@ -46,6 +47,27 @@ describe('Integration', () => {
             const getFromCache = await redisCache.get("FETCHED_KEY")
 
             expect(getFromCache).toEqual(expectedValue)
+        })
+    })
+
+    describe('removing data', () => {
+        it('should remove already existing keys', async () => {
+            const keyWritten = await redisCache.set("SOME_KEY", "SOME VALUE", 1000)
+
+            expect(keyWritten).toBe(true)
+
+            const keyFromCache = await redisCache.get("SOME_KEY")
+
+            expect(keyFromCache).toEqual("SOME VALUE")
+
+            const wasKeyDeleted = await redisCache.delete("SOME_KEY")
+
+            expect(wasKeyDeleted).toEqual(true)
+
+            const deletedKey = await redisCache.get("SOME_KEY")
+
+            expect(deletedKey).toEqual(null)
+
         })
     })
 })

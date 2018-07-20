@@ -107,6 +107,12 @@ describe('cache methods', () => {
             expect(resultFromCallback).toEqual(expectedValue)
         })
     })
-    describe('clear', () => {
+
+    describe('delete', () => {
+        it('should delete an existing key', async () => {
+            redisCache.client.del = (jest.fn((a, callback) => callback(null, 1)))
+
+            expect(await redisCache.delete("SOME_KEY")).toEqual(true)
+        })
     })
 })

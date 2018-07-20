@@ -36,13 +36,20 @@ module.exports = class RedisCache {
         if (valueFound) {
             return valueFound
         } else {
-            const valueToBeSaved = await saveMethod()
+            const valueToBeSaved = await Promise.resolve(saveMethod())
 
             await this.set(key, valueToBeSaved, this.defaultExpiry)
+
             return valueToBeSaved
         }
     }
 
+    delete(key){
+        const asyncDelete = this.promisifyMethod(this.client, "del")
+
+        return asyncDelete(key).then(response => response === 1)
+
+    }
 
     promisifyMethod(client, method) {
         return promisify(client[method]).bind(client)
