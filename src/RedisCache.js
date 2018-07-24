@@ -6,9 +6,12 @@ module.exports = class RedisCache {
     constructor({defaultExpiry = 1, redisConfig = {}} = {}) {
         this.client = new redis.createClient(redisConfig)
 
-        if(defaultExpiry <= 0){
+        if (defaultExpiry <= 0) {
             throw "Argument error. Default expiry should be greater than zero."
         }
+
+        this.client.on('error', (error) => console.log(`Error: ${error.code}`))
+
         this.defaultExpiry = defaultExpiry
     }
 
@@ -44,7 +47,7 @@ module.exports = class RedisCache {
         }
     }
 
-    delete(key){
+    delete(key) {
         const asyncDelete = this.promisifyMethod(this.client, "del")
 
         return asyncDelete(key).then(response => response === 1)
