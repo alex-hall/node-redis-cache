@@ -6,7 +6,7 @@ COPY package*.json ./
 COPY yarn.lock ./
 COPY .yarnrc ./
 
-RUN yarn install --verbose
+RUN yarn install
 
 COPY . . 
 
