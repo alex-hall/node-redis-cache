@@ -11,6 +11,9 @@
     "type": "git",
     "url": "git+https://github.com/alex-hall/node-redis-cache.git"
   },
+  "jest": {
+    "testEnvironment": "node"
+  },
   "keywords": [
     "node",
     "redis",
