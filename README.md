@@ -1,6 +1,4 @@
-[![Build Status](https://travis-ci.org/alex-hall/node-redis-cache.svg?branch=master)](https://travis-ci.org/alex-hall/node-redis-cache)
-
-[![npm version](https://badge.fury.io/js/node-redis-app-cache.svg)](https://badge.fury.io/js/node-redis-app-cache)
+[![Build Status](https://travis-ci.org/alex-hall/node-redis-cache.svg?branch=master)](https://travis-ci.org/alex-hall/node-redis-cache) [![npm version](https://badge.fury.io/js/node-redis-app-cache.svg)](https://badge.fury.io/js/node-redis-app-cache)
 
 ### Why? 
 
