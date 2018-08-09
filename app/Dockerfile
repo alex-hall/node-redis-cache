@@ -12,4 +12,4 @@ COPY . .
 
 EXPOSE 8080
 
-CMD ["yarn", "test"]
+CMD ["yarn", "test", "--verbose"]
