@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.org/alex-hall/node-redis-cache.svg?branch=master)](https://travis-ci.org/alex-hall/node-redis-cache)
 
+[![npm version](https://badge.fury.io/js/node-redis-app-cache.svg)](https://badge.fury.io/js/node-redis-app-cache)
+
 ### Why? 
 
 This is a zero dependency and _slightly opinionated_ implementation of the Redis package, opinions include: 
