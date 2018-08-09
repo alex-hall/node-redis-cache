@@ -25,8 +25,7 @@ yarn add node-redis-app-cache
 Simply require the file in your application: 
 
 ```javascript
-   const RedisCache = require("./RedisCache")
-
+   const {RedisCache} = require('node-redis-app-cache')
 ```
 
 From there, specify the default expiry (in seconds) as well as the redis config: 
