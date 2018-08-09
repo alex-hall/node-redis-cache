@@ -44,17 +44,17 @@ NOTE: the redis config option is simply a passthrough to the [node redis config]
 
 The API for this package is intentionally simple and only exposes a few methods: 
 
-**set(key, value, expiry):** Sets a key and value, and an (optional) expiry. If no expiry is set, the default value expiry is used. 
+- **set(key, value, expiry) => Promise** : Sets a key and value, and an (optional) expiry. If no expiry is set, the default value expiry is used. 
 
-**exists(key):** Returns true/false on whether the key exists in the specified database. 
+- **exists(key) => Promise** : Returns true/false on whether the key exists in the specified database. 
 
-**get(key):** Returns a value given a key. 
+- **get(key) => Promise** : Returns a value given a key. 
 
-**fetch(key, saveMethod):** Tries to fetch the given key, if the key is not found, calls the save method and tries to persist the return of the save method with the key specified.
+- **fetch(key, saveMethod) => Promise** : Tries to fetch the given key, if the key is not found, calls the save method and tries to persist the return of the save method with the key specified.
 
 _TODO_: add expiry override
 
-**delete(key):** Deletes the given key. 
+- **delete(key) => Promise** : Deletes the given key. 
 
 The API is also designed so that all APIs return a promise by default. This is not default behavior of the Redis package and is an intentional design decision.
 
