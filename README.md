@@ -7,6 +7,7 @@ This is a zero dependency and _slightly opinionated_ implementation of the Redis
 - Fully Promisified implementation
 - Default cache expiry
 - Standard cache API
+- docker-compose config for easy dev environment setup
 - TODO: Exponential backoff retry logic
 
 This package is also fully tested (Unit + Integration) and is backed by Travis CI for all pull requests.
@@ -16,7 +17,7 @@ This package is also fully tested (Unit + Integration) and is backed by Travis C
 In order to install the package, source from either NPM or Yarn: 
 
 ```bash
-yarn add node-redis-cache
+yarn add node-redis-app-cache
 ```
 
 ### Setup
