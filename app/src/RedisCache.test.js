@@ -5,7 +5,8 @@ jest.mock('redis', () => ({
     createClient: jest.fn(() => ({
         set: jest.fn((a, b, c, d, callback) => callback(null, "OK")),
         exists: jest.fn((a, callback) => callback(null, 0)),
-        get: jest.fn((a, callback) => callback(null, "SOME DEFAULT VALUE"))
+        get: jest.fn((a, callback) => callback(null, "SOME DEFAULT VALUE")),
+        on: jest.fn()
     }))
 }))
 

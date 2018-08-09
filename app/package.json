@@ -4,12 +4,15 @@
   "description": "A simple application cache backed by Redis!",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watch",
-    "test-ci": "jest"
+    "test-watch": "jest --watch",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/alex-hall/node-redis-cache.git"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "keywords": [
     "node",

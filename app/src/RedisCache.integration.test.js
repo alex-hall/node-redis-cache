@@ -6,7 +6,10 @@ describe('Integration', () => {
     const desiredExpiryInSeconds = 1
 
     beforeEach(() => {
-        redisCache = new RedisCache({defaultExpiry: 1})
+        redisCache = new RedisCache({
+            defaultExpiry: 1,
+            redisConfig: "redis://cache:6379"
+        })
     })
 
     describe('basic CRUD operation', () => {
