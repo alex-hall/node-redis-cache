@@ -1,6 +1,6 @@
 {
-  "name": "node-redis-cache",
-  "version": "1.0.0",
+  "name": "node-redis-app-cache",
+  "version": "1.0.1",
   "description": "A simple application cache backed by Redis!",
   "main": "index.js",
   "scripts": {
